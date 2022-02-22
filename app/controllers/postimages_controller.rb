@@ -17,6 +17,12 @@ class PostimagesController < ApplicationController
   def show
     @postimage = Postimage.find(params[:id])
   end
+  
+  def destroy
+    @postimage = Postimage.find(params[:id])
+    @postimage.delete
+    redirect_to postimage_path
+  end
 
   private
 
