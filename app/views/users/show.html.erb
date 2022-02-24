@@ -6,15 +6,4 @@
   <% end %>
 </div>
 
-<% @postimages.each do |postimage| %>
-<div>
-  <%= link_to postimage_path(postimage.id) do %>
-    <%= image_tag postimage.get_image %>
-    <% end %>
-  <P>投稿ユーザー画像:<%= image_tag postimage.user.get_profile_image(100,100) %></P>
-  <P>ショップ名:<%= postimage.shop_name %></P>
-  <P>説明:<%= postimage.caption %></P>
-  <P>ユーザーネーム:<%= postimage.user.name %></P>
-  <p><%= link_to "#{postimage.post_comments.count} コメント",postimage_path(postimage.id) %></p>
-</div>
-<% end %>
+<%= render 'postimages/list',postimages: @postimages %>
